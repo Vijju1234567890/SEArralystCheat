@@ -55,10 +55,10 @@ public class FirstPage extends AppCompatActivity {
         Button Administrator=findViewById(R.id.administrator_login_btn);
         Button Employee=findViewById(R.id.employee_login_btn);
         Button Guest=findViewById(R.id.guest_login_btn);
-
-        for(int i=0;i<10;i++)
-        {
-            employees.add(new Employee(user_emp[i],pass_emp[i],user_emp[i],job[i%5],"N/A",i+1,3+(float)Math.random()));
+        if(employees.size()==0) {
+            for (int i = 0; i < 10; i++) {
+                employees.add(new Employee(user_emp[i], pass_emp[i], user_emp[i], job[i % 5], "N/A", i + 1, 3 + (float) Math.random()));
+            }
         }
 
        /* try {

@@ -52,6 +52,10 @@ public class AdministratorPage extends AppCompatActivity {
                             }
                         }
 
+
+
+
+
                         st[i]=temp.getStartTime()/1000;
                         end[i]=temp.getEndTime()/1000;
                         cost[i]=(end[i]-st[i])*rate[i];
@@ -65,6 +69,10 @@ public class AdministratorPage extends AppCompatActivity {
                         cost[i]/=100;
 
                         sum+=cost[i];
+
+                        while(tech[i].length()<15)
+                            tech[i]+=" ";
+
                     }
 
                     sum*=100;
@@ -76,8 +84,8 @@ public class AdministratorPage extends AppCompatActivity {
                     text+="Id.   \t Technican  \t Duration    \t Rate    \t Cost\n";
                     for(int i=0;i<n;i++)
                     {
-                        text+=Integer.toString(id[i])+"  \t"+tech[i]+"   \t";
-                        text+=Long.toString(duration[i])+"\t       "+Double.toString(rate[i])+"    \t"+Double.toString(cost[i])+"\n";
+                        text+=Integer.toString(id[i])+"     \t"+tech[i]+"   \t";
+                        text+=Long.toString(duration[i])+"\t          "+Double.toString(rate[i])+"     \t"+Double.toString(cost[i])+"\n";
                     }
                     text+="\n Hence, your total cost is equal to Rs"+Double.toString(sum)+"\n\n Thanking You,\n IFB Admin.";
                     Intent i = new Intent(Intent.ACTION_SEND);
