@@ -61,7 +61,7 @@ public class FirstPage extends AppCompatActivity {
             employees.add(new Employee(user_emp[i],pass_emp[i],user_emp[i],job[i%5],"N/A",i+1,3+(float)Math.random()));
         }
 
-        try {
+       /* try {
             root = new File(Environment.getExternalStorageDirectory(), "IFB");
             if (!root.exists()) {
                 root.mkdirs();
@@ -87,7 +87,7 @@ public class FirstPage extends AppCompatActivity {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
 

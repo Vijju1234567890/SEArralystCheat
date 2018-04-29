@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginPage" />
-        <activity android:name=".RegisterPage" />
         <activity android:name=".GuestPage" />
         <activity android:name=".AdministratorPage" />
         <activity android:name=".AssignCallsPage" />

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 public class AssignCallsPage extends AppCompatActivity {
     int IdOnTask=0,IdOnTaskAssign=0;
+    Button prevTask,prevFin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,11 @@ public class AssignCallsPage extends AppCompatActivity {
         next__taskAssigned_btn = (Button)findViewById(R.id.next__taskAssigned_btn);
         taskFinished_btn = (Button)findViewById(R.id.taskFinished_btn);
         next_taskFinished_btn = (Button)findViewById(R.id.next_taskFinished_btn);
+        prevTask=(Button) findViewById(R.id.previous_taskassigned_btn);
+        prevFin=(Button) findViewById(R.id.previous_taskfinished_btn);
+
+        prevTask.setVisibility(View.INVISIBLE);
+        prevFin.setVisibility(View.INVISIBLE);
 
 
         /*TextFields*/
@@ -34,6 +40,7 @@ public class AssignCallsPage extends AppCompatActivity {
         employeeAvailability_text=(EditText)findViewById(R.id.employeeAvailability_text);
 
         try {
+
             Task t = FirstPage.unassigned.get(IdOnTask);
             callTally_text.setText(Integer.toString(IdOnTask) + "/" + Integer.toString(FirstPage.unassigned.size()));
             callAssigned_text.setText(t.getDescription());
@@ -41,7 +48,7 @@ public class AssignCallsPage extends AppCompatActivity {
             for(int i=0;i<FirstPage.employees.size();i++)
             {
                 Employee e=FirstPage.employees.get(i);
-                if(e.getJob().equals(t.getExpertise()) && e.getTask().equals("N/A"));
+                if(e.getJob().equals(t.getExpertise()) && e.getTask().equals("N/A"))
                 {
                     found=true;
                 }
@@ -58,7 +65,7 @@ public class AssignCallsPage extends AppCompatActivity {
         }
 
         try{
-            Task t=FirstPage.assigned.get(IdOnTaskAssign++);
+            Task t=FirstPage.assigned.get(IdOnTaskAssign);
             ongoingCall_text.setText(t.getDescription());
         }
         catch (Exception e)
@@ -81,28 +88,37 @@ public class AssignCallsPage extends AppCompatActivity {
                 try {
                     Task t = FirstPage.unassigned.get(IdOnTask);
                     boolean found = false;
-                    for (int i = 0; i < FirstPage.employees.size(); i++) {
+                    for (int i = 0; i < FirstPage.employees.size(); i++)
+                    {
                         Employee e = FirstPage.employees.get(i);
-                        if (e.getJob().equals(t.getExpertise()) && e.getTask().equals("N/A")) ;
+                        System.out.println(e.getJob()+" "+t.getExpertise()+" "+e.getJob().equals(t.getExpertise()));
+                        if(e.getJob().toString().equals(t.getExpertise().toString()) && e.getTask().toString().equals(("N/A").toString()))
                         {
                             found = true;
-                            FirstPage.employees.get(i).setTask(t.getExpertise());
+                            FirstPage.employees.get(i).setTask(t.getDescription());
                             t.setEid(e.getId());
+                            break;
                         }
                     }
-                    if (found) {
+                    if (found)
+                    {
                         found=false;
                         employeeAvailability_text.setText("Technicians Available!");
                         t.setStartTime(System.currentTimeMillis());
                         FirstPage.assigned.add(t);
                         FirstPage.unassigned.remove(IdOnTask);
-                        try{
+                        try
+                        {
+                            //System.out.print(IdOnTask+" "+FirstPage.assigned.size());
                             t=FirstPage.assigned.get(IdOnTaskAssign++);
                             ongoingCall_text.setText(t.getDescription());
+                            prevFin.setVisibility(View.VISIBLE);
                         }
                         catch (Exception e)
                         {
+                            e.printStackTrace();
                             ongoingCall_text.setText("No further tasks!");
+
                         }
                         try {
                             t = FirstPage.unassigned.get(IdOnTask);
@@ -112,7 +128,7 @@ public class AssignCallsPage extends AppCompatActivity {
                             for(int i=0;i<FirstPage.employees.size();i++)
                             {
                                 Employee e=FirstPage.employees.get(i);
-                                if(e.getJob().equals(t.getExpertise()) && e.getTask().equals("N/A"));
+                                if(e.getJob().toString().equals(t.getExpertise().toString()) && e.getTask().toString().equals(("N/A").toString()))
                                 {
                                     found=true;
                                 }
@@ -123,8 +139,10 @@ public class AssignCallsPage extends AppCompatActivity {
                                 employeeAvailability_text.setText("No Available Employee!!");
                         } catch (Exception e) {
                             callAssigned_text.setText("No further tasks!");
+                            callTally_text.setText(Integer.toString(FirstPage.unassigned.size()) + "/" + Integer.toString(FirstPage.unassigned.size()));
                             employeeAvailability_text.setText("No Available Employee!!");
                         }
+
 
                     } else {
                         employeeAvailability_text.setText("No Available Employee!!");
@@ -132,7 +150,7 @@ public class AssignCallsPage extends AppCompatActivity {
                 }
                 catch(Exception e)
                 {
-
+                    e.printStackTrace();
                 }
 
             }
@@ -142,14 +160,16 @@ public class AssignCallsPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try{
+
                     Task t=FirstPage.unassigned.get(IdOnTask++);
-                    callTally_text.setText(Integer.toString(IdOnTask)+"/"+Integer.toString(FirstPage.unassigned.size()));
+                    callTally_text.setText(Integer.toString(IdOnTask+1)+"/"+Integer.toString(FirstPage.unassigned.size()));
                     callAssigned_text.setText(t.getDescription());
                     boolean found=false;
+                    prevTask.setVisibility(View.VISIBLE);
                     for(int i=0;i<FirstPage.employees.size();i++)
                     {
                         Employee e=FirstPage.employees.get(i);
-                        if(e.getJob().equals(t.getExpertise()) && e.getTask().equals("N/A"));
+                        if(e.getJob().toString().equals(t.getExpertise().toString()) && e.getTask().toString().equals(("N/A").toString()))
                         {
                             found=true;
                         }
@@ -168,6 +188,41 @@ public class AssignCallsPage extends AppCompatActivity {
             }
         });
 
+       prevTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(IdOnTask==0)
+                {
+                    prevTask.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    try {
+                        IdOnTask--;
+                        Task t = FirstPage.unassigned.get(IdOnTask);
+                        callTally_text.setText(Integer.toString(IdOnTask) + "/" + Integer.toString(FirstPage.unassigned.size()));
+                        callAssigned_text.setText(t.getDescription());
+                        boolean found = false;
+                        for (int i = 0; i < FirstPage.employees.size(); i++)
+                        {
+                            Employee e = FirstPage.employees.get(i);
+                            if (e.getJob().equals(t.getExpertise()) && e.getTask().equals("N/A"))
+                            {
+                                found = true;
+                            }
+                        }
+                        if (found)
+                            employeeAvailability_text.setText("Technicians Available!");
+                        else
+                            employeeAvailability_text.setText("No Available Employee!!");
+
+                    } catch (Exception e) {
+                        callAssigned_text.setText("No further tasks!");
+                        employeeAvailability_text.setText("No Available Employee!!");
+                    }
+                }
+            }
+        });
+
         taskFinished_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +231,7 @@ public class AssignCallsPage extends AppCompatActivity {
                     t.setEndTime(System.currentTimeMillis());
                     for (int i = 0; i < FirstPage.employees.size(); i++) {
                         Employee e = FirstPage.employees.get(i);
-                        if (e.getId() == t.getEid()) ;
+                        if (e.getId() == t.getEid())
                         {
                             FirstPage.employees.get(i).setTask("N/A");
                         }
@@ -203,10 +258,30 @@ public class AssignCallsPage extends AppCompatActivity {
                 try{
                     Task t=FirstPage.assigned.get(IdOnTaskAssign++);
                     ongoingCall_text.setText(t.getDescription());
+                    prevFin.setVisibility(View.VISIBLE);
                 }
                 catch (Exception e)
                 {
                    ongoingCall_text.setText("No further tasks!");
+                }
+
+            }
+        });
+        prevFin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(IdOnTaskAssign==0)
+                {
+                    prevFin.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    try {
+                        Task t = FirstPage.assigned.get(--IdOnTaskAssign);
+                        ongoingCall_text.setText(t.getDescription());
+                        prevFin.setVisibility(View.VISIBLE);
+                    } catch (Exception e) {
+                        ongoingCall_text.setText("No further tasks!");
+                    }
                 }
 
             }

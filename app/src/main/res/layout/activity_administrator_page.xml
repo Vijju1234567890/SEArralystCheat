@@ -47,7 +47,7 @@
         android:layout_marginTop="32dp"
         android:background="#42A5F5"
         android:elevation="16dp"
-        android:text="Assign Calls"
+        android:text="Calls"
         app:layout_constraintBottom_toTopOf="@+id/billing_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -73,11 +73,11 @@ public class AdministratorPage extends AppCompatActivity {
 
 
                     String text="Dear Sir/Ma'am\n Thank you for using IFB Services. Please find the payment details below-\n";
-                    text+="Id.  \t Technican  \t Duration \t Rate \t Cost\n";
+                    text+="Id.   \t Technican  \t Duration    \t Rate    \t Cost\n";
                     for(int i=0;i<n;i++)
                     {
-                        text+=Integer.toString(id[0])+"  \t"+tech[0]+"  \t";
-                        text+=Long.toString(duration[i])+"\t"+Double.toString(rate[i])+"\t"+Double.toString(cost[i])+"\n";
+                        text+=Integer.toString(id[i])+"  \t"+tech[i]+"   \t";
+                        text+=Long.toString(duration[i])+"\t       "+Double.toString(rate[i])+"    \t"+Double.toString(cost[i])+"\n";
                     }
                     text+="\n Hence, your total cost is equal to Rs"+Double.toString(sum)+"\n\n Thanking You,\n IFB Admin.";
                     Intent i = new Intent(Intent.ACTION_SEND);
