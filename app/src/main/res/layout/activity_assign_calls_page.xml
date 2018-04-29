@@ -11,154 +11,206 @@
     tools:context=".ScrollViewActivity">
 
 
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="146dp">
+        app:layout_constraintTop_toTopOf="parent"
+        >
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="505dp"
-        android:orientation="vertical"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="3dp">
-
-        <EditText
-            android:id="@+id/callAssigned_text"
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#FFFFFF"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scrollbars="vertical"
+            >
 
-            android:gravity="center"
-            android:hint="Call To Be Assigned" />
+            <EditText
+                android:id="@+id/callAssigned_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
-        <EditText
-            android:id="@+id/callTally_text"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:hint="Call(i)/TotalCalls"
-            android:textSize="12sp"
-            tools:layout_editor_absoluteX="147dp"
-            tools:layout_editor_absoluteY="1dp" />
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:hint="Call To Be Assigned"
+                app:layout_constraintBottom_toTopOf="@+id/callTally_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/assign_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#42A5F5"
-            android:elevation="16dp"
-            android:text="Assign"
-            app:layout_constraintBottom_toTopOf="@+id/employeeAvailability_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/callAssigned_text" />
+            <EditText
+                android:id="@+id/callTally_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:hint="Call(i)/TotalCalls"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/assign_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.501"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/callAssigned_text" />
 
-        <EditText
-            android:id="@+id/ongoingCall_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:hint="Ongoing Call"
-            app:layout_constraintBottom_toTopOf="@+id/taskFinished_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/callTally_text" />
+            <Button
+                android:id="@+id/assign_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#42A5F5"
+                android:elevation="16dp"
+                android:text="Assign"
+                app:layout_constraintBottom_toTopOf="@+id/employeeAvailability_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/callTally_text" />
 
-        <EditText
-            android:id="@+id/employeeAvailability_text"
-            android:layout_width="wrap_content"
-            android:layout_height="12dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:hint="Employee Availability"
-            android:textColor="#FF5722"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/next_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/assign_btn" />
+            <EditText
+                android:id="@+id/ongoingCall_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:hint="Ongoing Call"
+                app:layout_constraintBottom_toTopOf="@+id/taskFinished_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/previous_taskassigned_btn" />
 
-        <Button
-            android:id="@+id/logout_calls_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:background="@android:color/holo_red_light"
-            android:elevation="16dp"
-            android:text="Log Out"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <EditText
+                android:id="@+id/employeeAvailability_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:hint="Employee Availability"
+                android:textColor="#FF5722"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/next__taskAssigned_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/assign_btn" />/>
 
-        <Button
-            android:id="@+id/next__taskAssigned_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:background="#42A5F5"
-            android:elevation="16dp"
-            android:text="Next"
-            app:layout_constraintBottom_toTopOf="@+id/callTally_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/assign_btn" />
+            <Button
+                android:id="@+id/logout_calls_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/holo_red_light"
+                android:elevation="16dp"
+                android:text="Log Out"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/previous_taskfinished_btn" />
 
-        <Button
-            android:id="@+id/taskFinished_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#42A5F5"
-            android:elevation="16dp"
-            android:text="Task Finished"
-            app:layout_constraintBottom_toTopOf="@+id/next_taskFinished_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ongoingCall_text" />
+            <Button
+                android:id="@+id/next__taskAssigned_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#42A5F5"
+                android:elevation="16dp"
+                android:text="Next"
+                app:layout_constraintBottom_toTopOf="@+id/previous_taskassigned_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/employeeAvailability_text" />
 
-        <Button
-            android:id="@+id/next_taskFinished_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="64dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:background="#42A5F5"
-            android:elevation="16dp"
-            android:text="Next"
-            app:layout_constraintBottom_toTopOf="@+id/logout_calls_btn"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/taskFinished_btn" />
+            <Button
+                android:id="@+id/taskFinished_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#42A5F5"
+                android:elevation="16dp"
+                android:text="Task Finished"
+                app:layout_constraintBottom_toTopOf="@+id/next_taskFinished_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ongoingCall_text" />
+
+            <Button
+                android:id="@+id/next_taskFinished_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#42A5F5"
+                android:elevation="16dp"
+                android:text="Next"
+                app:layout_constraintBottom_toTopOf="@+id/previous_taskfinished_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskFinished_btn" />
+
+            <Button
+                android:id="@+id/previous_taskfinished_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Previous"
+                android:elevation="16dp"
+                android:background="#42A5F5"
+                app:layout_constraintBottom_toTopOf="@+id/logout_calls_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/next_taskFinished_btn" />
+
+            <Button
+                android:id="@+id/previous_taskassigned_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="Previous"
+                android:background="#42A5F5"
+                android:elevation="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/ongoingCall_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/next__taskAssigned_btn" />
 
 
-    </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

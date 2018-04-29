@@ -4,12 +4,12 @@
     <modules>
       <module fileurl="file://C:\Users\abhis\Documents\SEProjectNew\IFBServices3.iml" filepath="C:\Users\abhis\Documents\SEProjectNew\IFBServices3.iml" />
       <module fileurl="file://C:\Users\Abhishek Singh\Desktop\SEProjectNew\IFBServices3.iml" filepath="C:\Users\Abhishek Singh\Desktop\SEProjectNew\IFBServices3.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SECheatMode.iml" filepath="$PROJECT_DIR$/SECheatMode.iml" />
+      <module fileurl="file://C:\Users\Abhishek Singh\Desktop\SEArralystCheat\SECheatMode.iml" filepath="C:\Users\Abhishek Singh\Desktop\SEArralystCheat\SECheatMode.iml" />
       <module fileurl="file://C:\Users\Abhishek Singh\AndroidStudioProjects\IFBServices3\SEProjectNew.iml" filepath="C:\Users\Abhishek Singh\AndroidStudioProjects\IFBServices3\SEProjectNew.iml" />
       <module fileurl="file://C:\Users\user\Documents\SECheatMode\SEProjectNew.iml" filepath="C:\Users\user\Documents\SECheatMode\SEProjectNew.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Abhishek Singh\Desktop\SEProjectNew\app\app.iml" filepath="C:\Users\Abhishek Singh\Desktop\SEProjectNew\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../SEProjectNew/app/app.iml" filepath="$PROJECT_DIR$/../SEProjectNew/app/app.iml" />
       <module fileurl="file://C:\Users\user\Documents\SECheatMode\app\app.iml" filepath="C:\Users\user\Documents\SECheatMode\app\app.iml" />
+      <module fileurl="file://C:\Users\Abhishek Singh\Desktop\SEArralystCheat\app\app.iml" filepath="C:\Users\Abhishek Singh\Desktop\SEArralystCheat\app\app.iml" />
     </modules>
   </component>
 </project>
