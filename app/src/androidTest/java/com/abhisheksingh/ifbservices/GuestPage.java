@@ -1,8 +1,8 @@
 package com.abhisheksingh.ifbservices;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
@@ -11,7 +11,7 @@ import android.widget.Toast;
 public class GuestPage extends AppCompatActivity {
 
     Button rateus,contactus,request;
-    static RatingBar rb;
+    RatingBar rb;
     static float rating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

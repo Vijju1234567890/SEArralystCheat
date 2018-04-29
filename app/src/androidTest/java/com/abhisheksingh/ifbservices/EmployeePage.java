@@ -1,11 +1,10 @@
 package com.abhisheksingh.ifbservices;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -13,9 +12,7 @@ public class EmployeePage extends AppCompatActivity {
 
     Button logout;//Logout
     RatingBar rb;//Rating Bar of Employee
-    static TextView name;
-    static TextView task;
-    static TextView job;//Name of Employee
+    TextView name,task,job;//Name of Employee
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

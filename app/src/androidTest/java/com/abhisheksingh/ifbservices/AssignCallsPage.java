@@ -1,15 +1,15 @@
 package com.abhisheksingh.ifbservices;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class AssignCallsPage extends AppCompatActivity {
-    static int IdOnTask=0,IdOnTaskAssign=0;
+    int IdOnTask=0,IdOnTaskAssign=0;
     Button prevTask,prevFin;
 
     @Override
@@ -92,6 +92,7 @@ public class AssignCallsPage extends AppCompatActivity {
                     IdOnTask--;
                     try {
                         Task t = FirstPage.unassigned.get(IdOnTask);
+                        IdOnTask++;
                         boolean found = false;
                         for (int i = 0; i < FirstPage.employees.size(); i++) {
                             Employee e = FirstPage.employees.get(i);
@@ -109,7 +110,7 @@ public class AssignCallsPage extends AppCompatActivity {
                             employeeAvailability_text.setText("Technicians Available!");
                             t.setStartTime(System.currentTimeMillis());
                             FirstPage.assigned.add(t);
-                            FirstPage.unassigned.remove(IdOnTask);
+                            FirstPage.unassigned.remove(--IdOnTask);
                             try {
                                 //System.out.print(IdOnTask+" "+FirstPage.assigned.size());
                                 t = FirstPage.assigned.get(IdOnTaskAssign);
@@ -122,7 +123,8 @@ public class AssignCallsPage extends AppCompatActivity {
 
                             }
                             try {
-                                t = FirstPage.unassigned.get(IdOnTask-1);
+                                t = FirstPage.unassigned.get(IdOnTask);
+                                IdOnTask++;
                                 callTally_text.setText(Integer.toString(IdOnTask) + "/" + Integer.toString(FirstPage.unassigned.size()));
                                 callAssigned_text.setText(t.getDescription());
 
@@ -137,18 +139,9 @@ public class AssignCallsPage extends AppCompatActivity {
                                 else
                                     employeeAvailability_text.setText("No Available Employee!!");
                             } catch (Exception e) {
-                                if(FirstPage.unassigned.size()>0)
-                                {
-                                    callAssigned_text.setText("Click Next to see Further Tasks");
-                                    callTally_text.setText(Integer.toString(IdOnTask) + "/" + Integer.toString(FirstPage.unassigned.size()));
-                                    employeeAvailability_text.setText("No Available Employee!!");
-                                }
-                                else
-                                {
-                                    callAssigned_text.setText("No Further Tasks Available!");
-                                    callTally_text.setText(Integer.toString(IdOnTask) + "/" + Integer.toString(FirstPage.unassigned.size()));
-                                    employeeAvailability_text.setText("No Available Employee!!");
-                                }
+                                callAssigned_text.setText("No further tasks!");
+                                callTally_text.setText(Integer.toString(FirstPage.unassigned.size()) + "/" + Integer.toString(FirstPage.unassigned.size()));
+                                employeeAvailability_text.setText("No Available Employee!!");
                             }
 
 
@@ -247,28 +240,15 @@ public class AssignCallsPage extends AppCompatActivity {
                         FirstPage.assigned.remove(IdOnTaskAssign);
 
                         try {
-                            t = FirstPage.assigned.get(IdOnTaskAssign-1);
+                            t = FirstPage.assigned.get(IdOnTaskAssign);
+                            IdOnTaskAssign++;
                             ongoingCall_text.setText(t.getDescription());
                         } catch (Exception e) {
-                            if(FirstPage.assigned.size()>0)
-                            {
-                                ongoingCall_text.setText("Click Next to See More Tasks");
-                            }
-                            else
-                            {
-                                ongoingCall_text.setText("No More Tasks!");
-                            }
+                            ongoingCall_text.setText("No further tasks!");
                         }
                     } catch (Exception e) {
 
-                        if(FirstPage.assigned.size()>0)
-                        {
-                            ongoingCall_text.setText("Click Next to See More Tasks");
-                        }
-                        else
-                        {
-                            ongoingCall_text.setText("No More Tasks!");
-                        }
+                        ongoingCall_text.setText("No further tasks!");
 
                     }
                 }
