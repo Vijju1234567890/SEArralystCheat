@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/employee_page"
+    android:background="@drawable/background"
+    tools:context=".ScrollViewActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scrollbars="vertical">
+
+    <RatingBar
+        android:id="@+id/ratingBar_employee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/image_employee"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:isIndicator="true"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_employee"
+        android:layout_width="141dp"
+        android:layout_height="141dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/employeeName_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar_employee"
+        app:srcCompat="@drawable/user" />
+
+            <TextView
+                android:id="@+id/employeeName_text"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginBottom="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:hint="Employee Name"
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/taskAssigned_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/image_employee" />
+
+            <TextView
+                android:id="@+id/taskAssigned_text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="8dp"
+                android:background="#FFFFFF"
+                android:hint="Task Assigned"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/logout_employee_btn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/employeeName_text" />
+            <TextView
+                android:id="@+id/Job_text"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:hint="JOB Name"
+                android:background="#FFFFFF"
+                app:layout_constraintBottom_toTopOf="@+id/logout_employee_btn"
+                android:layout_marginBottom="32dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                />
+
+            <Button
+                android:id="@+id/logout_employee_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="32dp"
+                android:background="@android:color/holo_red_light"
+                android:elevation="16dp"
+                android:text="Log Out"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/taskAssigned_text" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

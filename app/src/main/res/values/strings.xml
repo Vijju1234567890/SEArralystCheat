@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">IFB Services</string>
+    <string-array name="status_select">
+        <item>Electrician</item>
+        <item>Plumber</item>
+        <item>Technician</item>
+        <item>Carpenter</item>
+        <item>Mechanic</item>
+    </string-array>
+</resources>
